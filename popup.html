@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>화면 열리자마자 보이는 팝업</title>
+
+    <!-- css웹표준 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"> 
+    <!-- 웹표준 후 내 css 연결 -->
+    <link rel="stylesheet" href="css/navi.css">
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src = "js/base.js"></script>
+
+
+    <script>
+        $(document).ready(function(){
+            // click이벤트
+            $('#notice button').click(function(){
+                $('body').removeClass('on')
+            })
+        })
+    </script>
+    <style>
+
+        body #notice{
+            display: none;
+        }
+
+        body.on{
+            overflow: hidden; /*body에 on클래스 들어가면 y축으로 스크롤 안 넣을게*/
+        } 
+        body.on:after{ /*가상 선택자*/
+            content: ""; /*가상 선택자의 필수 스타일 */
+            display: block;
+            position: fixed;
+            top: 0; 
+            left:0;
+            right: 0;
+            bottom: 0;
+
+            background: rgba(0,0,0,0.8);
+
+            z-index: 10;/*팝업에는 반드시 필요한 작업.*/
+            
+        }
+
+        #notice{
+            background: white;
+            position: absolute;
+            border-radius: 30px;
+            z-index: 11;
+
+            /* 반응형으로 제작시 아래 속성들 필요 -> width, height 값을 정하지 않고 여백만 정하고, max로 최대 사이즈만 정하니까 반응형으로 팝업 생성 가능.*/
+            max-width: 600px;
+            max-height: 600px;
+            left: 2rem;
+            right: 2rem;
+            top: 2rem;
+            bottom: 2rem;
+            margin: auto;
+
+            display: none;
+            justify-content: center;
+            align-items: center;
+
+        }
+        body.on #notice{ /*body에 on이라는 class가 있을 때 팝업이 나타난다.*/
+            display: flex;
+        }
+
+            #notice button{
+                position: absolute;
+                right: 0;
+                top: 0;
+                transform: translateY(-110%);/* 내 키보다 Y축을 110% 올라갈게 */
+                background: transparent;
+
+                width: 2.5rem;
+                height: 2.5rem;
+                border: 0;
+                color: transparent;
+                cursor: pointer;
+            }
+
+            #notice button:after{
+                content: "";
+                display: block;
+                height: 3px;
+                background: white;
+                transform-origin: center;
+                transform: rotate(-45deg) translateY(-1rem);
+            }
+
+            #notice button:before{
+                content: "";
+                display: block;
+                height: 3px;
+                background: white;
+                transform-origin: center;
+                transform: rotate(45deg) translateY(1rem);
+            }
+
+            #notice li {
+                font-size: 2rem;
+                line-height: 2;
+                border-bottom: 1px solid #ccc;
+            }
+
+            #notice ul {
+                padding: 2rem; /*패딩으로 너비를 살짝 여유 줌 widht 가능한 쓰지 않도록..*/
+            }
+
+
+    </style>
+
+</head>
+<body class="on">
+    <div class="contents">
+        <!-- p{아무거나}*100 -->
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+        <p>아무거나</p>
+    </div>
+
+    <!-- #notice>btn{닫기}+div.popcontent>ul>li{팝업리스트}*5 -->
+    <!-- btn:r = 취소버튼 -->
+    <!-- btn:s =  -->
+    <!-- btn:b =  -->
+    <div id="notice">
+        <button>닫기</button>
+        <div class="popcontent">
+            <ul>
+                <li>팝업리스트</li>
+                <li>팝업리스트</li>
+                <li>팝업리스트</li>
+                <li>팝업리스트</li>
+                <li>팝업리스트</li>
+            </ul>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

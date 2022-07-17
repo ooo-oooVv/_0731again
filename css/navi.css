@@ -1,0 +1,56 @@
+/* 가운데 정렬 하는 법. */
+
+#navi{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+    #navi a{
+        text-decoration: none;
+    }
+    #navi ul{
+        display: flex;
+        justify-content: center;
+    }
+
+        #navi ul li{
+            padding: 15px;
+        }
+
+        #navi li{
+            border-radius: 30px;
+            border: 5px solid black;
+            margin:0 15px;
+            text-align: center;
+        }
+        /* #navi ul li:nth-child(1){
+            border-color: green;
+        }
+        #navi ul li:nth-child(2){
+            border-color: yellow;
+        }
+        #navi ul li:nth-child(3){
+            border-color: blue;
+        }
+ */
+
+        /* #navi ul li:nth-child(1) a{
+            border: 5px solid green;
+        }
+
+
+        #navi ul li:nth-child(2) a{
+            border: 5px solid yellow;
+        }
+
+        #navi ul li:nth-child(3) a{
+            border: 5px solid blue;
+        }
+ */
