@@ -35,27 +35,46 @@
     console.log(navidata[1].d2[0][0], navidata[1].d2[0][1]) // -> console.log(a태그안의 값, href 링크값) = console.log(navidata[1].d2[0][0], navidata[1].d2[0][1])
 
 
-    // Q1. 대메뉴가 순서대로 노출되도록 해라
-    $(document).ready(function(){
-        var navitag = '';
-        var navilength = navidata.length; // 대메뉴 개수
+    // // Q1. 대메뉴가 순서대로 노출되도록 해라
+    // $(document).ready(function(){
+    //     var navitag = '';
+    //     var navilength = navidata.length; // 대메뉴 개수
 
-        for(var i = 0; i < navilength; i++){ // 다중처리
-            navitag += "<li> <a href=''>" + navidata[i].d1[0] + "</li>"
+    //     for(var i = 0; i < navilength; i++){ // 다중처리
+    //         navitag += "<li> <a href=''>" + navidata[i].d1[0] + "</li>"
 
-        }
-        $('#navi').html(navitag)
-    })
+    //     }
+    //     $('#navi').html(navitag)
+    // })
 
-    // Q2. 대메뉴 a href값이 순서대로 적용되도록 해라
-    $(document).ready(function(){
-        var navitag = '';
-        var navilength = navidata.length; // 대메뉴 개수
+    //     // Q2. 대메뉴 a href값이 순서대로 적용되도록 해라
+    //     $(document).ready(function(){
+    //         var navitag = '';
+    //         var navilength = navidata.length; // 대메뉴 개수
+    
+    //         for(var i = 0; i < navilength; i++){ // 다중처리
+    //             navitag += "<li> <a href='" + navidata[i].d1[1] + "'>" + navidata[i].d1[0] + "</a></li>"
+    
+    //         }
+    //         $('#navi').html(navitag)
+    //     })
 
-        for(var i = 0; i < navilength; i++){ // 다중처리
-            navitag += "<li> <a href='" + navidata[i].d1[1] + "'>" + navidata[i].d1[0] + "</li>"
+        // Q3. 대제목, 소제목 끼리 출력되도록해라
+        $(document).ready(function(){
+            var navitag ="";
+            
+            for(var i in navidata){ // i를 navidata(목록) 갯수만큼 돌릴게
+            navitag += "<li><a href='"+navidata[i].d1[1]+"'>"+navidata[i].d1[0]+"</a>" //대제목
+                for(var j in navidata[i].d2 ){ // j를 navidata에 i가 들어간 d2(소제목) 갯수만큼 돌릴게
+                    if( j == 0) navitag += "<ul>" // j가 값이 0과 같을 때 ul태그 넣을게
+                    navitag += "<li><a href='"+navidata[i].d2[j][1]+"'>"+navidata[i].d2[j][1]+"</a></li>" //
+                    if( j == navidata[i].d2.length -1) navitag += "<ul>"
+                }
+            }
+            navitag += "</li>"
 
-        }
-        $('#navi').html(navitag)
-    })
+            $('#navi').html(navitag)
+        })
+
+        
     
