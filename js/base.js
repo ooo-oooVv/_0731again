@@ -59,22 +59,53 @@
     //         $('#navi').html(navitag)
     //     })
 
-        // Q3. 대제목, 소제목 끼리 출력되도록해라
+        // // Q3. 대제목, 소제목 연동
+        // $(document).ready(function(){
+        //     var navitag ="";
+            
+        //     for(var i in navidata){ // i를 navidata(목록) 갯수만큼 돌릴게
+        //     navitag += "<li><a href='"+navidata[i].d1[1]+"'>"+navidata[i].d1[0]+"</a>" //대제목
+        //         for(var j in navidata[i].d2 ){ // j를 navidata에 i가 들어간 d2(소제목) 갯수만큼 돌릴게
+        //             if( j == 0) navitag += "<ul>" // j가 값이 0과 같을 때 ul태그 넣을게
+        //             navitag += "<li><a href='"+navidata[i].d2[j][1]+"'>"+navidata[i].d2[j][1]+"</a></li>" //
+        //             if( j == navidata[i].d2.length -1) navitag += "<ul>"
+        //         }
+        //     }
+        //     navitag += "</li>"
+
+        //     $('#navi').html(navitag)
+        // })
+
+        // Q. 대제목 순서대료 출력하기
+        // $(document).ready(function(){
+        //     var navitag ="";
+        //     navitag += `<li><a href="${navidata[0].d1[1]}">${navidata[0].d1[0]}</a></li>`
+        //     navitag += `<li><a href="${navidata[1].d1[1]}">${navidata[1].d1[0]}</a></li>`
+        //     navitag += `<li><a href="${navidata[2].d1[1]}">${navidata[2].d1[0]}</a></li>`
+        //     navitag += `<li><a href="${navidata[3].d1[1]}">${navidata[3].d1[0]}</a></li>`
+
+        //     $('#navi').html(navitag)
+        // })
+
+        // Q. for in으로 대제목 순서대료 출력하기
         $(document).ready(function(){
             var navitag ="";
             
-            for(var i in navidata){ // i를 navidata(목록) 갯수만큼 돌릴게
-            navitag += "<li><a href='"+navidata[i].d1[1]+"'>"+navidata[i].d1[0]+"</a>" //대제목
-                for(var j in navidata[i].d2 ){ // j를 navidata에 i가 들어간 d2(소제목) 갯수만큼 돌릴게
-                    if( j == 0) navitag += "<ul>" // j가 값이 0과 같을 때 ul태그 넣을게
-                    navitag += "<li><a href='"+navidata[i].d2[j][1]+"'>"+navidata[i].d2[j][1]+"</a></li>" //
-                    if( j == navidata[i].d2.length -1) navitag += "<ul>"
-                }
-            }
-            navitag += "</li>"
+            for (var i in navidata){
+            navitag += `<li><a href="${navidata[i].d1[1]}">${navidata[i].d1[0]}</a>`
 
+            for (var j in navidata[i].d2){
+                if( j == 0)
+                    navitag += `<ul>`//처음만 출력
+                    navitag +=`<li><a href="${navidata[i].d2[j][1]}">${navidata[i].d2[j][0]}</a>` // 소메뉴출력
+
+                if( j == navidata[i].d2.length -1) navitag += `</ul>`//마지막만 출력
+            }
+            navitag += `</li>`
+            }
             $('#navi').html(navitag)
         })
+
 
         
     
