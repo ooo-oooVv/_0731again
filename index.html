@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>제이쿼리 사용 이유</title>
+
+    <!-- font css를 가장 먼저 쓰는게 좋음 -->
+    <link rel="stylesheet" href="css/fonts.css">
+
 
     <!-- 웹표준 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"> 
@@ -18,27 +22,15 @@
 
 </head>
 <body>
-    <!-- <h1>내안의 글자 수정해봐봐</h1>
-    <p></p>-->
 
-    <div id="navi">
-        <ul>
-            <li><a href="http://www.naver.com" data-krnm="네이버" data-color="green">Naver</a></li>
-            <li><a href="http://www.daum.net" data-krnm="다음" data-color="yellow">Daum</a></li>
-            <li><a href="http://www.google.com" data-krnm="구글" data-color="blue">Google</a></li>
+    <header id="hd">
+        <h1 class="logo">
+			<a href="/">포스코엠텍</a>
+		</h1>
+
+        <ul id="navi">
+            <!-- 자바스크립트로 네비 제작 -->
         </ul>
-    </div>
-
-    <div id="product">
-        <div class="thumb" data-price="50000" data-prnm="공주실내화" data-img="img/product.png">
-            <img src="상품 이미지 출력">
-            <h2>상품 이름</h2>
-            <p>상품가격</p>
-        </div>
-    </div>
-
-
-
-    
+    </header>    
 </body>
 </html>

@@ -1,58 +1,61 @@
 
-//선택자 = 주어, 매서드 = 동사, 이벤트 = 시점
-//명령 내릴 때, 우영아, 점심시간에 전화해
-// 더보기버튼(주어-선택자) 클릭 시(시점-이벤트) 상품이 노출(동사-매서드)
+    var navidata = [ //array
+        {  //object
+            d1 : ['회사소개', 'company.html'], //대 메뉴_array
+            d2 : [                          // 소 메뉴                      
+                ['비전', 'v.html'],
+                ['인사말', 'c.html'],
+                ['주요연혁', 'g.html'],
+                ['CI 소개', 'ci.html'],
+                ['찾아오시는길', 'w.html'],
 
-// 선택자중에 "", '' 안쓰는 객체는 window, document 뿐!
+            ] 
+        },
+        {
+            d1 : ['사업영역', 'b.html'], //대 메뉴
+            d2 : [                          // 소 메뉴                      
+                ['소재사업', 'v.html'],
+                ['포장설비 엔지니어링', 'c.html'],
 
-// $(document).ready(function(){               // 화면이 준비되면 실행해라
-//     $('h1').html('<span>바꿔졌나?</span>')
-//     $('p').html('노출시켜주세요.. 제이쿼리로')
+            ] 
+        },
+        {
+            d1 : ['NEWS', 'n.html'], //대 메뉴
+            d2 : [                          // 소 메뉴가 없는경우 array 형식 맞추기 위해 d2 삭제하면 안된다. 비워둔채로 둘 것.                     
+            ] 
+        },
+        {
+            d1 : ['구매조달시스템', 'n.html'], //대 메뉴
+            d2 : [                          // 소 메뉴가 없는경우 array 형식 맞추기 위해 d2 삭제하면 안된다. 비워둔채로 둘 것.                     
+            ] 
+        },
+        
+    ]
 
-// }) 
+    console.log(navidata[1].d2[0][0], navidata[1].d2[0][1]) // -> console.log(a태그안의 값, href 링크값) = console.log(navidata[1].d2[0][0], navidata[1].d2[0][1])
 
-// daum을 한글 '다음'으로 변경하기
-// 선택자는 곧 css 선택자다.
-// $(document).ready(function(){
-//     $('#navi ul li:nth-child(2) a').html('다음')
-// })
-// $(document).ready(function(){
-    // Q. Nate를 한글'네이트'로 변경하기 1번 방법
-    //$('#navi ul li:nth-child(5) a').html('네이트') -> 수정 시 js 파일을 수정해야함
 
-    // Q. Nate를 한글'네이트'로 변경하기 2번 방법 -> 수정 시 html 파일을 수정하면 됨.
-    // $('#navi ul li:nth-child(5) a').html($('#navi ul li:nth-child(5) a').data('krnm')) //#navi ul li:nth-child(5) a 안의 글자가 data-krnm의 내용으로 변경 되어라!
+    // Q1. 대메뉴가 순서대로 노출되도록 해라
+    $(document).ready(function(){
+        var navitag = '';
+        var navilength = navidata.length; // 대메뉴 개수
+
+        for(var i = 0; i < navilength; i++){ // 다중처리
+            navitag += "<li> <a href=''>" + navidata[i].d1[0] + "</li>"
+
+        }
+        $('#navi').html(navitag)
+    })
+
+    // Q2. 대메뉴 a href값이 순서대로 적용되도록 해라
+    $(document).ready(function(){
+        var navitag = '';
+        var navilength = navidata.length; // 대메뉴 개수
+
+        for(var i = 0; i < navilength; i++){ // 다중처리
+            navitag += "<li> <a href='" + navidata[i].d1[1] + "'>" + navidata[i].d1[0] + "</li>"
+
+        }
+        $('#navi').html(navitag)
+    })
     
-    // Q. a 태그 안에 이름을 한글로 변경하기
-    // $('#navi ul li:nth-child(1) a').html($('#navi ul li:nth-child(1) a').data('krnm')) //#navi ul li:nth-child(2) a 안의 글자가 data-krnm의 내용으로 변경 되어라!
-    // $('#navi ul li:nth-child(2) a').html($('#navi ul li:nth-child(2) a').data('krnm')) //#navi ul li:nth-child(2) a 안의 글자가 data-krnm의 내용으로 변경 되어라!
-    // $('#navi ul li:nth-child(3) a').html($('#navi ul li:nth-child(3) a').data('krnm')) //#navi ul li:nth-child(2) a 안의 글자가 data-krnm의 내용으로 변경 되어라!
-    // $('#navi ul li:nth-child(4) a').html($('#navi ul li:nth-child(4) a').data('krnm')) //#navi ul li:nth-child(2) a 안의 글자가 data-krnm의 내용으로 변경 되어라!
-    // $('#navi ul li:nth-child(5) a').html($('#navi ul li:nth-child(5) a').data('krnm')) //#navi ul li:nth-child(2) a 안의 글자가 data-krnm의 내용으로 변경 되어라!
-
-    // 위 식을 each문으로 짧게 정리하면 아래와 같음.  each가 있다면 each 앞의 주어가 복수구나.! 두둥탁
-//     $('navi li a').each(function(){ //a의 내용을 각자 실행해라. 
-//         $('this').html($('this').data('krnm')) // #navi ul li:nth-child(1) a'
-//     })
-// })
-
-// $(document).ready(function(){
-//     $('#navi li a').each(function(){ //a 각자를 실행해라. 
-//         $(this).html($(this).data('krnm')) // 실행중인 a 태그(this) html 안에 a의(this) data-krnm 값을 넣어라
-//         $(this).css('color', $(this).data('color')) // 실행중인 a 태그(this)의 css color 값에 a의(this) data-color 값을 넣어라
-//         $(this).parent().css('border-color', $(this).data('color')) //실행중인 a 태그의 부모의 css norder-color 값에 a의 data-color 값 넣어라.
-//     })
-// })
-
-$(document).ready(function(){
-// 상품명 출력
-$('#product .thumb h2').html( //
-    $('#product .thumb').data('prnm')); //prnm옵션값이 #product .thumb 에 있음
-
-// 상품가격 출력
-$('#product .thumb p').html(
-    $('#product .thumb').data('price'));
-
-// 상품이미지 출력
-$('#product .thumb img').attr('src', $('#product .thumb').data('img')) //attr태그의 속성은 속성 접근 매서드.
-})

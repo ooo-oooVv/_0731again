@@ -10,6 +10,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    font-family: 'GongGothicBold';
+    font-size: 2em;
 }
 
     #navi a{
@@ -30,27 +32,11 @@
             margin:0 15px;
             text-align: center;
         }
-        /* #navi ul li:nth-child(1){
-            border-color: green;
-        }
-        #navi ul li:nth-child(2){
-            border-color: yellow;
-        }
-        #navi ul li:nth-child(3){
-            border-color: blue;
-        }
- */
 
-        /* #navi ul li:nth-child(1) a{
-            border: 5px solid green;
+        .logo a {
+            display: block;
+            width: 152px;
+            height: 60px;
+            font-size: 0;
+            background: url(http://www.poscomtech.com/resources/images/common/site-logo.svg) center no-repeat;
         }
-
-
-        #navi ul li:nth-child(2) a{
-            border: 5px solid yellow;
-        }
-
-        #navi ul li:nth-child(3) a{
-            border: 5px solid blue;
-        }
- */
