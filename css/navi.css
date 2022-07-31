@@ -1,37 +1,3 @@
-/* 가운데 정렬 하는 법. */
-
-#navi{
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-family: 'GongGothicBold';
-    font-size: 2em;
-}
-
-    #navi a{
-        text-decoration: none;
-    }
-    #navi ul{
-        display: flex;
-        justify-content: center;
-    }
-
-        #navi ul li{
-            padding: 15px;
-        }
-
-        #navi li{
-            border-radius: 30px;
-            border: 5px solid black;
-            margin:0 15px;
-            text-align: center;
-        }
 
         .logo a {
             display: block;
@@ -39,4 +5,20 @@
             height: 60px;
             font-size: 0;
             background: url(http://www.poscomtech.com/resources/images/common/site-logo.svg) center no-repeat;
+        }
+
+        /* 햄버거버튼 */
+        .navbar-toggler{
+            padding: .75em;
+        }
+
+        /* 소메뉴 */
+        #navbarNav .d2{
+            opacity: 0;
+            visibility: hidden;
+            display: none;
+        }
+
+        #navbarNav .nav-item > a{
+            color: white;
         }

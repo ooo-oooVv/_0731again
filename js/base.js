@@ -1,7 +1,7 @@
 
     var navidata = [ //array
         {  //object
-            d1 : ['회사소개', 'company.html'], //대 메뉴_array
+            d1 : ['회사소개', '#about'], //대 메뉴_array
             d2 : [                          // 소 메뉴                      
                 ['비전', 'v.html'],
                 ['인사말', 'c.html'],
@@ -87,25 +87,44 @@
         //     $('#navi').html(navitag)
         // })
 
+        // // Q. for in으로 대제목 순서대료 출력하기
+        // $(document).ready(function(){
+        //     var navitag ="";
+            
+        //     for (var i in navidata){
+        //     navitag += `<li><a href="${navidata[i].d1[1]}">${navidata[i].d1[0]}</a>`
+
+        //     for (var j in navidata[i].d2){
+        //         if( j == 0)
+        //             navitag += `<ul>`//처음만 출력
+        //             navitag +=`<li><a href="${navidata[i].d2[j][1]}">${navidata[i].d2[j][0]}</a>` // 소메뉴출력
+
+        //         if( j == navidata[i].d2.length -1) navitag += `</ul>`//마지막만 출력
+        //     }
+        //     navitag += `</li>`
+        //     }
+        //     $('#navi').html(navitag)
+        // })
+
+
         // Q. for in으로 대제목 순서대료 출력하기
         $(document).ready(function(){
             var navitag ="";
             
             for (var i in navidata){
-            navitag += `<li><a href="${navidata[i].d1[1]}">${navidata[i].d1[0]}</a>`
+            // 대메뉴츌력
+            navitag += `<li class="nav-item position-relative"><a href="${navidata[i].d1[1]}" class="py-2 py-md-0 px-0 px-md-3 d-block">${navidata[i].d1[0]}</a>`
 
             for (var j in navidata[i].d2){
                 if( j == 0)
-                    navitag += `<ul>`//처음만 출력
-                    navitag +=`<li><a href="${navidata[i].d2[j][1]}">${navidata[i].d2[j][0]}</a>` // 소메뉴출력
+                    navitag += `<ul class="bg-white d2">`//처음만 출력
 
+                    navitag +=`<li><a href="${navidata[i].d2[j][1]}">${navidata[i].d2[j][0]}</a>` // 소메뉴출력
                 if( j == navidata[i].d2.length -1) navitag += `</ul>`//마지막만 출력
             }
             navitag += `</li>`
             }
-            $('#navi').html(navitag)
+            $('#navbarNav > ul').html(navitag)
         })
 
-
-        
     
